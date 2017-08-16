@@ -38,8 +38,9 @@ if(owners[x][y]!=msg.sender)revert();
 cost[x][y]=c;
 }
 
-finalizeBooking(){
-
+finalizeBooking(uint x,uint y){
+if(owners[x][y]!=msg.sender)revert();
+if(!buyer.finalize(x,y))revert();
 }
 
 }
